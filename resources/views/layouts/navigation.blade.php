@@ -18,6 +18,9 @@
                     <x-nav-link :href="route('generate')" :active="request()->routeIs('generate')">
                         {{ __('Generate') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('collection')" :active="request()->routeIs('collection')">
+                        {{ __('Collection') }}
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -75,6 +78,9 @@
             </x-responsive-nav-link>
             <x-responsive-nav-link :href="route('generate')" :active="request()->routeIs('generate')">
                 {{ __('Generate') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('collection')" :active="request()->routeIs('collection')">
+                {{ __('Collection') }}
             </x-responsive-nav-link>
         </div>
 

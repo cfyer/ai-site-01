@@ -18,7 +18,13 @@ class Generate extends Component
 
     public function generate()
     {
-        $this->validate(['prompt' => 'required']);
+        $this->validate(['prompt' => 'required|min:3']);
         $this->arts = ImageGeneration::request($this->prompt);
+        if (sizeof($this->arts) < 1) {
+            $this->setErrorBag(['prompt' => 'error. try again later.']);
+        }else{
+            $this->resetErrorBag();
+            $this->resetValidation();
+        }
     }
 }

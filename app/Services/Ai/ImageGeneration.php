@@ -13,19 +13,29 @@ class ImageGeneration
     {
         try {
             $request = Http::get(self::$endpoint . $prompt)->object();
+
             $arts = [];
+
             foreach ($request->result as $imagePath){
+
                 $newPath = 'arts/' . time() . '-' . rand(111, 999) . '.png';
+
                 copy($imagePath, public_path($newPath));
+
                 $arts[] = Art::query()->create([
                     'prompt' => $prompt,
                     'user_id' => auth()->id(),
                     'source' => $newPath
                 ]);
+
             }
+
             return $arts;
+
         }catch (\Exception){
+
             return [];
+
         }
     }
 }

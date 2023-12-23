@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\ProfileController;
+use App\Livewire\Collection;
+use App\Livewire\Generate;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,8 +20,8 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('dashboard/generate', \App\Livewire\Generate::class)->middleware('auth')->name('generate');
-
+Route::get('dashboard/generate', Generate::class)->middleware('auth')->name('generate');
+Route::get('dashboard/collection', Collection::class)->middleware('auth')->name('collection');
 
 // Breeze Routes
 Route::get('/dashboard', function () {
