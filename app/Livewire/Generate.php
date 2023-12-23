@@ -9,6 +9,7 @@ use Livewire\Component;
 class Generate extends Component
 {
     public string $prompt;
+    public array $arts = [];
 
     public function render(): View
     {
@@ -18,6 +19,6 @@ class Generate extends Component
     public function generate()
     {
         $this->validate(['prompt' => 'required']);
-        ImageGeneration::request($this->prompt);
+        $this->arts = ImageGeneration::request($this->prompt);
     }
 }
