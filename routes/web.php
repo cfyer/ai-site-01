@@ -1,8 +1,7 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
-use App\Livewire\Collection;
-use App\Livewire\Generate;
+use App\Http\Controllers\{UpgradeController, ProfileController};
+use App\Livewire\{Collection, Generate};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,10 +22,14 @@ Route::get('/', function () {
 Route::get('dashboard/generate', Generate::class)->middleware('auth')->name('generate');
 Route::get('dashboard/collection', Collection::class)->middleware('auth')->name('collection');
 
+Route::prefix('upgrade')->controller(UpgradeController::class)->group(function (){
+    Route::get('/', 'index');
+    Route::post('pay', 'pay');
+    Route::get('verify', 'verify');
+});
+
 // Breeze Routes
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', fn () => view('dashboard'))->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
