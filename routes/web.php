@@ -24,7 +24,7 @@ Route::get('dashboard/collection', Collection::class)->middleware('auth')->name(
 
 Route::prefix('upgrade')->controller(UpgradeController::class)->group(function (){
     Route::get('/', 'index');
-    Route::post('pay', 'pay');
+    Route::post('pay/{plan}', 'pay');
     Route::get('verify', 'verify');
 });
 

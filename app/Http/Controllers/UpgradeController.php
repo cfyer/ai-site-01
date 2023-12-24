@@ -13,9 +13,9 @@ class UpgradeController extends Controller
         return view('upgrade', compact('plans'));
     }
 
-    public function pay()
+    public function pay(Plan $plan)
     {
-        // TODO
+        dd($plan);
     }
 
     public function verify()
