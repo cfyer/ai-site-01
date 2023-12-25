@@ -32,7 +32,7 @@
 
 @yield('main')
 
-<footer class="mt-10 mb-5 bg-gray-800 max-w-7xl mx-auto border border-white border-opacity-5 lg:rounded-xl text-center py-16 px-10">
+<footer class="mt-10 bg-gray-800 mx-auto border border-white border-opacity-5 text-center py-12 px-10">
     <h5 class="text-lg text-white">Copyright</h5>
 </footer>
 
