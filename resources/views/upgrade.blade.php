@@ -3,7 +3,7 @@
 @section('main')
 
     <header class="px-6 py-4 container mt-20 text-center">
-        <h1 class="text-2xl text-white">Buy Credits (Pay with cryptography)</h1>
+        <h1 class="text-2xl text-white">Buy Credits (Pay with cryptocurrency)</h1>
     </header>
 
     <div class="container mt-3 max-w-7xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mx-auto p-2">

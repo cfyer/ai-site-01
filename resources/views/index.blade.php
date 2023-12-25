@@ -15,32 +15,17 @@
 
     <h3 class="text-center mt-20 text-3xl text-white">Vitrine</h3>
     <div class="container mt-3 max-w-4xl grid grid-cols-2 md:grid-cols-3 gap-2 mx-auto p-2">
-        <div class="w-full rounded-lg">
-            <img src="{{asset('resources/icon.jpg')}}" alt="image" class="rounded-lg">
-        </div>
-        <div class="w-full">
-            <img src="{{asset('resources/icon.jpg')}}" alt="image" class="rounded-lg">
-        </div>
-        <div class="w-full">
-            <img src="{{asset('resources/icon.jpg')}}" alt="image" class="rounded-lg">
-        </div>
-        <div class="w-full">
-            <img src="{{asset('resources/icon.jpg')}}" alt="image" class="rounded-lg">
-        </div>
-        <div class="w-full">
-            <img src="{{asset('resources/icon.jpg')}}" alt="image" class="rounded-lg">
-        </div>
-        <div class="w-full">
-            <img src="{{asset('resources/icon.jpg')}}" alt="image" class="rounded-lg">
-        </div>
-        <div class="w-full">
-            <img src="{{asset('resources/icon.jpg')}}" alt="image" class="rounded-lg">
-        </div>
-        <div class="w-full">
-            <img src="{{asset('resources/icon.jpg')}}" alt="image" class="rounded-lg">
-        </div>
-        <div class="w-full">
-            <img src="{{asset('resources/icon.jpg')}}" alt="image" class="rounded-lg">
-        </div>
+
+        @foreach($arts as $art)
+            <div class="w-full rounded-lg">
+                <img src="/{{$art->source}}" alt="{{$art->prompt}}" class="rounded-lg">
+            </div>
+        @endforeach
+
     </div>
+
+    <div class="flex items-center justify-center mt-8">
+        <a href="/vitrine" class="bg-blue-500 rounded-full text-xs font-semibold text-white py-3 px-5">More</a>
+    </div>
+
 @endsection
