@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Art;
+use App\Models\Article;
 use App\Http\Controllers\{UpgradeController, ProfileController};
 use App\Livewire\{Collection, Generate};
 use Illuminate\Support\Facades\Route;
@@ -16,7 +17,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', fn() => view('index')->with(['arts' => Art::orderByDesc('id')->take(15)->get()]));
+Route::get('/', function (){
+    $arts = Art::latest()->take(15)->get();
+    $articles = Article::latest()->take(3)->get();
+    return view('index', compact('arts', 'articles'));
+});
 
 Route::get('dashboard/generate', Generate::class)->middleware('auth')->name('generate');
 Route::get('dashboard/collection', Collection::class)->middleware('auth')->name('collection');

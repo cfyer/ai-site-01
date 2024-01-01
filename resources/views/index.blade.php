@@ -28,4 +28,11 @@
         <a href="/vitrine" class="bg-blue-500 rounded-full text-xs font-semibold text-white py-3 px-5">More</a>
     </div>
 
+    <div class="container mt-3 max-w-4xl grid sm:grid-cols-2 md:grid-cols-3 gap-2 mx-auto p-2">
+
+        @foreach($articles as $article)
+            <x-card :article="$article" />
+        @endforeach
+
+    </div>
 @endsection
