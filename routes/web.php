@@ -1,7 +1,6 @@
 <?php
 
-use App\Models\Art;
-use App\Models\Article;
+use App\Models\{Art,Article};
 use App\Http\Controllers\{UpgradeController, ProfileController};
 use App\Livewire\{Collection, Generate};
 use Illuminate\Support\Facades\Route;

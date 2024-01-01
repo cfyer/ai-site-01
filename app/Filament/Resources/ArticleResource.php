@@ -10,8 +10,6 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ArticleResource extends Resource
 {
@@ -23,7 +21,8 @@ class ArticleResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('title')->required()->columnSpanFull(),
+                Forms\Components\TextInput::make('title')->required(),
+                Forms\Components\TextInput::make('slug')->required()->alphaDash(),
                 Forms\Components\RichEditor::make('body')->required()->columnSpanFull(),
                 Forms\Components\FileUpload::make('image')->image()->required()->columnSpanFull()
             ]);
