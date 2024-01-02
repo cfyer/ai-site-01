@@ -20,7 +20,13 @@ class ClientController extends Controller
 
     public function vitrine()
     {
-        $arts = Art::latest()->paginate(3);
+        $artsQuery = Art::latest();
+
+        if (request()->has('q')){
+            $artsQuery->where('prompt', 'like', '%' . request('q') . '%');
+        }
+
+        $arts = $artsQuery->paginate(9);
         return view('vitrine', compact('arts'));
     }
 }
