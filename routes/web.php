@@ -14,12 +14,17 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-Route::get('/', [ClientController::class, 'home']);
-Route::get('articles/{article:slug}', [ClientController::class, 'article']);
-
 Route::get('dashboard/generate', Generate::class)->middleware('auth')->name('generate');
 Route::get('dashboard/collection', Collection::class)->middleware('auth')->name('collection');
+
+
+Route::controller(ClientController::class)->group(function (){
+    Route::get('/', 'home');
+    Route::get('articles/{article:slug}', 'article');
+    Route::get('vitrine', 'vitrine');
+});
+
+
 
 Route::prefix('upgrade')->controller(UpgradeController::class)->group(function (){
     Route::get('/', 'index');

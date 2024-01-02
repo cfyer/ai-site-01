@@ -20,6 +20,7 @@ class ClientController extends Controller
 
     public function vitrine()
     {
-        // TODO
+        $arts = Art::latest()->paginate(3);
+        return view('vitrine', compact('arts'));
     }
 }
