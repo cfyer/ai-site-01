@@ -1,4 +1,4 @@
-<div class="h-70 bg-neutral-800 rounded-3xl text-neutral-300 p-4 flex flex-col items-start justify-center gap-3">
+<div class="h-70 bg-gray-800 rounded-3xl text-neutral-300 p-4 flex flex-col items-start justify-center gap-3">
     <div class="rounded-2xl">
         <img src="/storage/{{$article->image}}" alt="{{$article->title}}" class="rounded-2xl">
     </div>
