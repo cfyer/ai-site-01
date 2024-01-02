@@ -18,7 +18,7 @@
 
         @foreach($arts as $art)
             <div class="w-full rounded-lg">
-                <img src="/{{$art->source}}" alt="{{$art->prompt}}" class="rounded-lg">
+                <img src="/{{$art->source}}" alt="{{$art->prompt}}" title="{{$art->prompt}}" class="rounded-lg">
             </div>
         @endforeach
 
