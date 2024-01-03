@@ -16,6 +16,9 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     You have {{auth()->user()->credits}} credits. <a href="/upgrade" class="text-blue-500">Buy more</a>
                 </div>
+                <div class="px-6 py-2 text-xs text-gray-900 dark:text-gray-100">
+                    {{request()->visitor()->platform()}} - {{request()->visitor()->browser()}} - {{request()->visitor()->ip()}}
+                </div>
             </div>
         </div>
     </div>

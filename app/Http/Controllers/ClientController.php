@@ -8,6 +8,7 @@ class ClientController extends Controller
 {
     public function home()
     {
+        visitor()->visit();
         $arts = Art::latest()->take(15)->get();
         $articles = Article::latest()->take(3)->get();
         return view('index', compact('arts', 'articles'));
@@ -15,6 +16,7 @@ class ClientController extends Controller
 
     public function article(Article $article)
     {
+        visitor()->visit($article);
         return view('article', compact('article'));
     }
 

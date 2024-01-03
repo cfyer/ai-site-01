@@ -9,6 +9,7 @@ use Filament\Widgets\TableWidget as BaseWidget;
 
 class LatestPayments extends BaseWidget
 {
+    protected static ?int $sort = 1 ;
     protected int | string | array $columnSpan = 'full';
     protected function getTableQuery(): Builder
     {
