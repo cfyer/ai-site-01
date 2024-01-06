@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\{ClientController, UpgradeController, ProfileController};
-use App\Livewire\{Collection, Generate};
+use App\Livewire\{Chat, Collection, Generate};
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +14,10 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
 Route::get('dashboard/generate', Generate::class)->middleware('auth')->name('generate');
 Route::get('dashboard/collection', Collection::class)->middleware('auth')->name('collection');
-
+Route::get('dashboard/chat', Chat::class)->middleware('auth')->name('chat');
 
 Route::controller(ClientController::class)->group(function (){
     Route::get('/', 'home');
@@ -24,12 +25,10 @@ Route::controller(ClientController::class)->group(function (){
     Route::get('vitrine', 'vitrine');
 });
 
-
-
 Route::prefix('upgrade')->controller(UpgradeController::class)->group(function (){
     Route::get('/', 'index');
-    Route::post('pay/{plan}', 'pay');
-    Route::get('verify', 'verify');
+    Route::post('pay/{plan}', 'pay')->middleware('auth');
+    Route::get('verify', 'verify')->middleware('auth');
 });
 
 // Breeze Routes
