@@ -33,6 +33,12 @@ class Chat extends Component
         $this->takeMessages();
     }
 
+    public function clear()
+    {
+        Message::whereUserId(auth()->id())->delete();
+        $this->takeMessages();
+    }
+
     private function takeMessages()
     {
         $this->messages = Message::query()->whereUserId(auth()->id())->get()->toArray();

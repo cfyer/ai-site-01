@@ -31,9 +31,10 @@
                             </div>
 
                             <div class="flex items-center gap-4">
+                                <button wire:click="clear" wire:loading.attr="disabled" class="px-4 py-2 bg-gray-200 border rounded-md font-semibold text-xs text-gray-800 uppercase dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Clear Chat</button>
                                 <button wire:click="submit" wire:loading.attr="disabled" class="px-4 py-2 bg-gray-200 border rounded-md font-semibold text-xs text-gray-800 uppercase dark:hover:bg-white focus:bg-gray-700 dark:focus:bg-white active:bg-gray-900 dark:active:bg-gray-300 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 dark:focus:ring-offset-gray-800 transition ease-in-out duration-150">Submit</button>
 
-                                <div wire:loading wire:target="generate" class="inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
+                                <div wire:loading wire:target="submit" class="inline-block h-6 w-6 animate-spin rounded-full border-4 border-solid border-current border-r-transparent align-[-0.125em] motion-reduce:animate-[spin_1.5s_linear_infinite]" role="status">
                                     <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]">Loading...</span>
                                 </div>
                             </div>
