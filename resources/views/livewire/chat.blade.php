@@ -11,18 +11,13 @@
                 <div class="p-6 text-gray-900 dark:text-gray-100">
 
                     <div class="flex-grow overflow-y-auto">
-                        <div class="flex flex-col space-y-1 py-4">
+                        <div class="flex flex-col space-y-2 py-4">
 
-
-                            <div class="self-end bg-blue-500 text-white rounded-lg p-2 flex items-center">
-                                <span class="material-icons mr-2">person</span>
-                                <p>This is a sender message</p>
-                            </div>
-                            <div class="self-start bg-gray-700 rounded-lg p-2 flex items-center">
-                                <span class="material-icons mr-2">person</span>
-                                <p>This is a receiver message</p>
-                            </div>
-
+                            @foreach($messages as $message)
+                                <div class="@if($message['is_reply']) self-start bg-gray-700  @else self-end bg-blue-500 @endif  text-white rounded-lg p-2">
+                                    <p>{!! $message['msg'] !!}</p>
+                                </div>
+                            @endforeach
 
                         </div>
                     </div>
@@ -44,7 +39,6 @@
                             </div>
                         </div>
                     </section>
-
 
                 </div>
             </div>

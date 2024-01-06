@@ -4,15 +4,12 @@ namespace App\Services\Ai;
 
 use Illuminate\Support\Facades\Http;
 
-class ChatBot
+class ChatBot implements Ai
 {
     public static string $endpoint = 'https://api3.haji-api.ir/majid/gpt/4?q=';
 
-    public static function request(string $prompt): bool|string
+    public static function request(string $prompt): array|string
     {
-        $request = Http::get(self::$endpoint . $prompt)->object();
-
-
-        return  false;
+        return Http::get(self::$endpoint . $prompt)->object()->result;
     }
 }

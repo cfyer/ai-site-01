@@ -5,11 +5,11 @@ namespace App\Services\Ai;
 use App\Models\Art;
 use Illuminate\Support\Facades\Http;
 
-class ImageGeneration
+class ImageGeneration implements Ai
 {
     public static string $endpoint = 'https://api3.haji-api.ir/majid/ai/image/draw/dalle?p=';
 
-    public static function request(string $prompt): bool|array
+    public static function request(string $prompt): array|string
     {
         try {
             $request = Http::get(self::$endpoint . $prompt)->object();
