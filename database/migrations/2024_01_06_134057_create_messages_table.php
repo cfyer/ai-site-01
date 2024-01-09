@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id();
-            $table->string('msg');
+            $table->text('msg');
             $table->foreignId('user_id')->constrained();
             $table->boolean('is_reply')->default(false);
             $table->timestamps();

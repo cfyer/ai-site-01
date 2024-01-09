@@ -10,6 +10,7 @@ class ChatBot implements Ai
 
     public static function request(string $prompt): array|string
     {
-        return Http::get(self::$endpoint . $prompt)->object()->result;
+        $response = Http::get(self::$endpoint . $prompt);
+        return $response->ok() ? $response->object()->result : "error";
     }
 }
