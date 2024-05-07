@@ -26,9 +26,9 @@ class Chat extends Component
     {
         $this->validate(['prompt' => 'required']);
 
-        Message::query()->create(['msg' => $this->prompt, 'user_id' => auth()->id()]);
+        Message::create(['msg' => $this->prompt, 'user_id' => auth()->id()]);
 
-        Message::query()->create(['msg' => ChatBot::request($this->prompt), 'user_id' => auth()->id(), 'is_reply' => true]);
+        Message::create(['msg' => ChatBot::request($this->prompt), 'user_id' => auth()->id(), 'is_reply' => true]);
 
         $this->takeMessages();
     }
